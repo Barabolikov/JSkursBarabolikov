@@ -1,124 +1,27 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="./main.js" defer></script>
-  <link rel="stylesheet" href="style.css">
-  <title>Моя ERP: Коледж</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="./main.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Моя ERP: Коледж</title>
 </head>
 <body>
 <header>
-  <h1>Інформаційна система ВСП"КІПФК СумДУ"</h1>
+    <h1>Інформаційна система ВСП"КІПФК СумДУ"</h1>
 </header>
 
 <main>
+    <!-- таби -->
+    <div id="tabs-container" class="tabs-container"></div>
 
-  <div class="tabs-container">
-    <button class="tab-button active" data-tab="students">Студенти</button>
-    <button class="tab-button" data-tab="teachers">Викладачі</button>
-    <button class="tab-button" data-tab="subjects">Дисципліни</button>
-  </div>
-
-
-  <div class="content-container">
-
-
-    <section id="students" class="tab-content active">
-      <h2>Список студентів</h2>
-      <table>
-        <thead>
-        <tr>
-          <th>ID</th>
-          <th>ПІБ</th>
-          <th>Група</th>
-          <th>Курс</th>
-          <th>Спеціальність</th>
-          <th>Середній бал</th>
-          <th>Форма навчання</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-          <td>1</td><td>Пилипенко Микола Іванович</td><td>721</td><td>2</td><td>F3 Комп'ютерні науки</td><td>4.5</td><td>Бюджет</td>
-        </tr>
-        <tr>
-          <td>2</td><td>Микуленко Дмитро Петрович</td><td>741</td><td>4</td><td>F2 Інженерія ПЗ</td><td>4.8</td><td>Бюджет</td>
-        </tr>
-        <tr>
-          <td>3</td><td>Криволап Анастасія Петрівна</td><td>121</td><td>2</td><td>G19 Будівництво та цивільна інженерія</td><td>2.6</td><td>Бюджет</td>
-        </tr>
-        <tr>
-          <td>4</td><td>Проскурня Валентина Дмитрівна</td><td>121</td><td>2</td><td>G19 Будівництво та цивільна інженерія</td><td>3.5</td><td>Контракт</td>
-        </tr>
-        <tr>
-          <td>5</td><td>Забіяка Сніжана Павлівна</td><td>141</td><td>4</td><td>G19 Будівництво та цивільна інженерія</td><td>4.3</td><td>Контракт</td>
-        </tr>
-
-        </tbody>
-      </table>
-    </section>
-
-
-    <section id="teachers" class="tab-content">
-      <h2>Список викладачів</h2>
-      <table>
-        <thead>
-        <tr>
-          <th>ID</th>
-          <th>ПІБ</th>
-          <th>Цикл. комісія</th>
-          <th>Посада</th>
-          <th>Вчений ступінь</th>
-          <th>Стаж (роки)</th>
-          <th>Кількість годин</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-          <td>1</td><td>Дмитренко Поліна Кирилівна</td><td>Програмування</td><td>Доцент</td><td>К.т.н.</td><td>15</td><td>1.0</td>
-        </tr>
-        <tr>
-          <td>2</td><td>Клименко Антоніна Павлівна</td><td>Веб програмування</td><td>Старший викладач</td><td>-</td><td>8</td><td>0.5</td>
-        </tr>
-        </tbody>
-      </table>
-    </section>
-
-
-    <section id="subjects" class="tab-content">
-      <h2>Перелік дисциплін</h2>
-      <table>
-        <thead>
-        <tr>
-          <th>ID</th>
-          <th>Назва</th>
-          <th>Години</th>
-          <th>Кредити ECTS</th>
-          <th>Вид контролю</th>
-          <th>Семестр</th>
-          <th>Тип</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-          <td>1</td><td>Основи програмування</td><td>120</td><td>4</td><td>Екзамен</td><td>1</td><td>Обов'язкова</td>
-        </tr>
-        <tr>
-          <td>2</td><td>Веб дизайн</td><td>90</td><td>3</td><td>Залік</td><td>3</td><td>Обов'язкова</td>
-        </tr>
-        <tr>
-          <td>2</td><td>Математика</td><td>240</td><td>8</td><td>Екзамен</td><td>1</td><td>Обов'язкова</td>
-        </tr>
-        </tbody>
-      </table>
-    </section>
-
-  </div>
+    <!-- таблиці -->
+    <div id="content-container" class="content-container"></div>
 </main>
 
 <footer>
-  <p>© 2026</p>
+    <p>© 2026</p>
 </footer>
 </body>
 </html>
