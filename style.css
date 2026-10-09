@@ -68,6 +68,192 @@ th, td {
 th { background-color: #f8f9fa; }
 h2 { color: #2c3e50; }
 
+/* --- СТИЛІ ДЛЯ ФОРМИ ТА КНОПОК --- */
+.add-btn {
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 15px 0;
+    transition: background-color 0.3s;
+}
+
+.add-btn:hover {
+    background-color: #2ecc71;
+}
+
+.data-form {
+    background-color: #f8f9fa;
+    border: 1px solid #bdc3c7;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-wrap: wrap; /* Дозволяє полям переноситись на новий рядок */
+    gap: 15px;
+    align-items: flex-end;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 150px;
+}
+
+.form-group label {
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #2c3e50;
+}
+
+.form-group input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.submit-btn {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    height: fit-content;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #2980b9;
+}
+
+/* --- СТИЛІ КНОПКИ ДОДАВАННЯ --- */
+.add-btn {
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 15px 0;
+    transition: background-color 0.3s;
+}
+
+.add-btn:hover { background-color: #2ecc71; }
+
+
+/* --- СТИЛІ ПОПАПУ (МОДАЛЬНОГО ВІКНА) --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6); /* Темний напівпрозорий фон */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Щоб попап був поверх усього */
+}
+
+.modal-content-box {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 450px;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    animation: slideDown 0.3s ease-out; /* Плавна поява зверху */
+}
+
+.modal-content-box h3 {
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+/* Хрестик закриття */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #7f8c8d;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.close-btn:hover { color: #e74c3c; }
+
+/* --- СТИЛІ ФОРМИ ВСЕРЕДИНІ ПОПАПУ --- */
+.data-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    align-items: stretch; /* Розтягує всі дочірні елементи на всю доступну ширину */
+
+    /* Прибираємо зайві рамки та фони, якщо вони залишились від попередньої версії */
+    background-color: transparent;
+    border: none;
+    padding: 0;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.form-group label {
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #34495e;
+    text-align: left; /* Примусове вирівнювання тексту зліва */
+}
+
+.form-group input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 100%; /* Поле на всю ширину */
+    box-sizing: border-box; /* Гарантує, що padding не буде вилазити за межі 100% ширини */
+}
+
+.submit-btn {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+    width: 100%; /* Робить кнопку великою на всю ширину (можете прибрати цей рядок, якщо хочете коротку кнопку) */
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #2980b9;
+}
+/* Анімація появи попапу */
+@keyframes slideDown {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
