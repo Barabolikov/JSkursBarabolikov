@@ -248,6 +248,57 @@ h2 { color: #2c3e50; }
 .submit-btn:hover {
     background-color: #2980b9;
 }
+/* --- СТИЛІ ДЛЯ ТАБЛИЦІ: РЕДАГУВАННЯ ТА ВИДАЛЕННЯ --- */
+
+/* Вказівник для комірок, які можна редагувати */
+.editable-cell {
+    cursor: text;
+    transition: background-color 0.2s;
+}
+
+.editable-cell:hover {
+    background-color: #f1f8ff; /* Легке підсвічування при наведенні */
+}
+
+/* Інпут, що з'являється замість тексту при кліку */
+.inline-edit-input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px;
+    border: 2px solid #3498db;
+    border-radius: 4px;
+    font-size: inherit;
+    font-family: inherit;
+    background-color: #fff;
+    outline: none;
+}
+
+/* Кнопка видалення (Хрестик) */
+.delete-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    transition: transform 0.2s;
+}
+
+.delete-btn:hover {
+    transform: scale(1.2); /* Легке збільшення хрестика при наведенні */
+}
+
+/* --- СТИЛІ ДЛЯ ПОПАПУ ПОМИЛКИ (Foreign Key Error) --- */
+.error-box {
+    border-top: 5px solid #e74c3c; /* Червона смужка зверху */
+    text-align: center;
+}
+
+#error-modal-msg {
+    font-size: 15px;
+    color: #333;
+    margin-top: 10px;
+    line-height: 1.5;
+}
+
 /* Анімація появи попапу */
 @keyframes slideDown {
     from { transform: translateY(-50px); opacity: 0; }
