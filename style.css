@@ -299,6 +299,26 @@ h2 { color: #2c3e50; }
     line-height: 1.5;
 }
 
+/* --- Універсальні стилі для полів вводу та вибору --- */
+.form-control-input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: inherit;
+    background-color: #fff;
+}
+
+/* Прибираємо старі специфічні селектори, якщо вони є,
+і залишаємо лише кастомізацію для inline-редагування */
+.inline-edit-input {
+    border: 2px solid #3498db;
+    outline: none;
+    padding: 8px; /* Трохи менший відступ для inline */
+}
+
 /* Анімація появи попапу */
 @keyframes slideDown {
     from { transform: translateY(-50px); opacity: 0; }
