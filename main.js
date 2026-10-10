@@ -1,6 +1,4 @@
-// ==========================================
-// 1. КЛАСИ СУТНОСТЕЙ
-// ==========================================
+
 class Student {
     constructor(id, fullName, group, course, specialty, avgGrade, funding) {
         this.id = id; this.fullName = fullName; this.group = group;
@@ -10,7 +8,7 @@ class Student {
     getValues() { return [this.id, this.fullName, this.group, this.course, this.specialty, this.avgGrade, this.funding]; }
 }
 
-// ЗМІНА: Замість "Кафедра" тепер "Дисципліна" (subject) для демонстрації списку
+
 class Teacher {
     constructor(id, fullName, subject, position, degree, experience, rate) {
         this.id = id; this.fullName = fullName; this.subject = subject;
@@ -27,9 +25,6 @@ class Subject {
     getValues() { return [this.id, this.title, this.hours, this.credits, this.controlType, this.semester, this.type]; }
 }
 
-// ==========================================
-// 2. КЛАСИ ІНТЕРФЕЙСУ
-// ==========================================
 class Tab {
     constructor(id, label) {
         this.id = id; this.label = label; this.element = null;
@@ -153,7 +148,7 @@ class Content {
 
             let input;
 
-            // ЗМІНА 4-го ЗАВДАННЯ: Якщо це таблиця Викладачів і поле Дисципліна, малюємо <select>
+
             if (this.title === 'Список викладачів' && headerText === 'Дисципліна') {
                 input = document.createElement('select');
                 // Тягнемо актуальні дисципліни з localStorage
@@ -170,7 +165,7 @@ class Content {
             }
 
             input.required = true;
-            input.className = 'form-control-input'; // Єдиний клас для стилізації
+            input.className = 'form-control-input';
 
             formGroup.appendChild(label);
             formGroup.appendChild(input);
@@ -193,7 +188,7 @@ class Content {
 
             this.itemsData.push(newItem);
             this.renderTableBody();
-            this.onDataChange(); // ЗБЕРІГАЄМО ЛОКАЛЬНО
+            this.onDataChange();
 
             form.reset();
             this.modalOverlay.style.display = 'none';
@@ -239,7 +234,7 @@ class Content {
 
         let input;
 
-        // ЗМІНА 4-го ЗАВДАННЯ: Inline-редагування також стає випадним списком
+
         if (this.title === 'Список викладачів' && headerText === 'Дисципліна') {
             input = document.createElement('select');
             const subjects = JSON.parse(localStorage.getItem('erp_subjects')) || [];
@@ -247,7 +242,7 @@ class Content {
                 const opt = document.createElement('option');
                 opt.value = sub.title;
                 opt.textContent = sub.title;
-                if (sub.title === currentValue) opt.selected = true; // Виділяємо поточне значення
+                if (sub.title === currentValue) opt.selected = true; //поточне
                 input.appendChild(opt);
             });
         } else {
@@ -265,7 +260,7 @@ class Content {
             const newValue = input.value.trim();
             td.textContent = newValue;
             item[propertyKey] = newValue;
-            this.onDataChange(); // ЗБЕРІГАЄМО ЛОКАЛЬНО ПРИ РЕДАГУВАННІ
+            this.onDataChange(); // зебріг
         };
 
         input.addEventListener('blur', saveEdit);
@@ -275,28 +270,28 @@ class Content {
     }
 
     handleDelete(item) {
-        // РЕАЛЬНА ПЕРЕВІРКА ЗВ'ЯЗКІВ (Замість симуляції)
+
         if (item instanceof Subject) {
-            // Отримуємо поточний список викладачів з localStorage
+
             const teachers = JSON.parse(localStorage.getItem('erp_teachers')) || [];
 
-            // Перевіряємо, чи є хоча б один викладач, у якого вказана ця дисципліна
+
             const isUsed = teachers.some(t => t.subject === item.title);
 
             if (isUsed) {
-                showErrorPopup(`Помилка! Дисципліну "${item.title}" неможливо видалити, оскільки вона призначена одному або декільком викладачам.`);
-                return; // Зупиняємо видалення
+                showErrorPopup(`ERROR! Дисципліну "${item.title}" неможливо видалити, оскільки вона призначена одному або декільком викладачам.`);
+                return;
             }
         }
 
-        // Стандартне видалення для всіх інших випадків (або якщо перевірку пройдено)
+
         if (confirm("Ви дійсно бажаєте видалити цей рядок?")) {
-            // Безпечне видалення з масиву
+
             const idx = this.itemsData.findIndex(i => i.id === item.id);
             if (idx !== -1) {
                 this.itemsData.splice(idx, 1);
                 this.renderTableBody();
-                this.onDataChange(); // ЗБЕРІГАЄМО ЛОКАЛЬНО
+                this.onDataChange(); // зберіг
             }
         }
     }
@@ -364,22 +359,20 @@ function showErrorPopup(message) {
     errorModal.style.display = 'flex';
 }
 
-// ==========================================
-// 3. ІНІЦІАЛІЗАЦІЯ ТА LOCAL STORAGE
-// ==========================================
+
 document.addEventListener('DOMContentLoaded', () => {
 
-    // Ключі для localStorage
+
     const KEYS = { s: 'erp_students', t: 'erp_teachers', sub: 'erp_subjects' };
 
-    // Функція зчитування даних (якщо порожньо - створює початкові)
+
     function loadData() {
         let lsStudents = JSON.parse(localStorage.getItem(KEYS.s));
         let lsTeachers = JSON.parse(localStorage.getItem(KEYS.t));
         let lsSubjects = JSON.parse(localStorage.getItem(KEYS.sub));
 
         if (!lsStudents || !lsTeachers || !lsSubjects) {
-            // Початкове заповнення, якщо користувач зайшов вперше
+
             lsStudents = [
                 new Student(1, "Пилипенко Микола Іванович", "721", 2, "F3 Комп'ютерні науки", 4.5, "Бюджет"),
                 new Student(2, "Микуленко Дмитро Петрович", "741", 4, "F2 Інженерія ПЗ", 4.8, "Бюджет")
@@ -394,7 +387,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ];
             saveData(lsStudents, lsTeachers, lsSubjects);
         } else {
-            // Відновлення об'єктів класів з JSON
+
             lsStudents = lsStudents.map(x => new Student(x.id, x.fullName, x.group, x.course, x.specialty, x.avgGrade, x.funding));
             lsTeachers = lsTeachers.map(x => new Teacher(x.id, x.fullName, x.subject, x.position, x.degree, x.experience, x.rate));
             lsSubjects = lsSubjects.map(x => new Subject(x.id, x.title, x.hours, x.credits, x.controlType, x.semester, x.type));
@@ -411,7 +404,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let data = loadData();
 
-    // Функція, яка викликатиметься класами Content при будь-якій зміні
+
     const handleDataChange = () => {
         saveData(data.lsStudents, data.lsTeachers, data.lsSubjects);
     };
@@ -428,12 +421,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     tabSystem.init();
 
-    // СИНХРОНІЗАЦІЯ ВКЛАДОК: Слухаємо зміни з інших вкладок браузера
+
     window.addEventListener('storage', (e) => {
         if (e.key === KEYS.s || e.key === KEYS.t || e.key === KEYS.sub) {
-            // Якщо щось змінилось у сусідній вкладці, завантажуємо нові дані...
+
             data = loadData();
-            // ...і просимо таблиці перемалюватися
+
             contentStudents.refreshData(data.lsStudents);
             contentTeachers.refreshData(data.lsTeachers);
             contentSubjects.refreshData(data.lsSubjects);

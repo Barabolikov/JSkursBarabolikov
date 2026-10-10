@@ -68,7 +68,7 @@ th, td {
 th { background-color: #f8f9fa; }
 h2 { color: #2c3e50; }
 
-/* --- СТИЛІ ДЛЯ ФОРМИ ТА КНОПОК --- */
+
 .add-btn {
     background-color: #27ae60;
     color: white;
@@ -92,7 +92,7 @@ h2 { color: #2c3e50; }
     border-radius: 5px;
     margin-bottom: 15px;
     display: flex;
-    flex-wrap: wrap; /* Дозволяє полям переноситись на новий рядок */
+    flex-wrap: wrap;
     gap: 15px;
     align-items: flex-end;
 }
@@ -134,7 +134,7 @@ h2 { color: #2c3e50; }
     background-color: #2980b9;
 }
 
-/* --- СТИЛІ КНОПКИ ДОДАВАННЯ --- */
+
 .add-btn {
     background-color: #27ae60;
     color: white;
@@ -150,18 +150,18 @@ h2 { color: #2c3e50; }
 .add-btn:hover { background-color: #2ecc71; }
 
 
-/* --- СТИЛІ ПОПАПУ (МОДАЛЬНОГО ВІКНА) --- */
+/* СТИЛІ ПОПАПУ*/
 .modal-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.6); /* Темний напівпрозорий фон */
+    background-color: rgba(0, 0, 0, 0.6);
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000; /* Щоб попап був поверх усього */
+    z-index: 1000;
 }
 
 .modal-content-box {
@@ -172,7 +172,7 @@ h2 { color: #2c3e50; }
     max-width: 450px;
     position: relative;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-    animation: slideDown 0.3s ease-out; /* Плавна поява зверху */
+    animation: slideDown 0.3s ease-out;
 }
 
 .modal-content-box h3 {
@@ -194,15 +194,15 @@ h2 { color: #2c3e50; }
 
 .close-btn:hover { color: #e74c3c; }
 
-/* --- СТИЛІ ФОРМИ ВСЕРЕДИНІ ПОПАПУ --- */
+
 .data-form {
     display: flex;
     flex-direction: column;
     gap: 15px;
     width: 100%;
-    align-items: stretch; /* Розтягує всі дочірні елементи на всю доступну ширину */
+    align-items: stretch;
 
-    /* Прибираємо зайві рамки та фони, якщо вони залишились від попередньої версії */
+
     background-color: transparent;
     border: none;
     padding: 0;
@@ -219,7 +219,7 @@ h2 { color: #2c3e50; }
     font-weight: bold;
     margin-bottom: 5px;
     color: #34495e;
-    text-align: left; /* Примусове вирівнювання тексту зліва */
+    text-align: left;
 }
 
 .form-group input {
@@ -227,8 +227,8 @@ h2 { color: #2c3e50; }
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 14px;
-    width: 100%; /* Поле на всю ширину */
-    box-sizing: border-box; /* Гарантує, що padding не буде вилазити за межі 100% ширини */
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .submit-btn {
@@ -241,26 +241,25 @@ h2 { color: #2c3e50; }
     font-size: 16px;
     font-weight: bold;
     margin-top: 10px;
-    width: 100%; /* Робить кнопку великою на всю ширину (можете прибрати цей рядок, якщо хочете коротку кнопку) */
+    width: 100%;
     transition: background-color 0.3s;
 }
 
 .submit-btn:hover {
     background-color: #2980b9;
 }
-/* --- СТИЛІ ДЛЯ ТАБЛИЦІ: РЕДАГУВАННЯ ТА ВИДАЛЕННЯ --- */
+/* РЕД ТА ВИДАЛ */
 
-/* Вказівник для комірок, які можна редагувати */
 .editable-cell {
     cursor: text;
     transition: background-color 0.2s;
 }
 
 .editable-cell:hover {
-    background-color: #f1f8ff; /* Легке підсвічування при наведенні */
+    background-color: #f1f8ff;
 }
 
-/* Інпут, що з'являється замість тексту при кліку */
+
 .inline-edit-input {
     width: 100%;
     box-sizing: border-box;
@@ -273,7 +272,7 @@ h2 { color: #2c3e50; }
     outline: none;
 }
 
-/* Кнопка видалення (Хрестик) */
+/* Хрестик */
 .delete-btn {
     background-color: transparent;
     border: none;
@@ -283,12 +282,12 @@ h2 { color: #2c3e50; }
 }
 
 .delete-btn:hover {
-    transform: scale(1.2); /* Легке збільшення хрестика при наведенні */
+    transform: scale(1.2);
 }
 
-/* --- СТИЛІ ДЛЯ ПОПАПУ ПОМИЛКИ (Foreign Key Error) --- */
+/* Foreign Key Error */
 .error-box {
-    border-top: 5px solid #e74c3c; /* Червона смужка зверху */
+    border-top: 5px solid #e74c3c;
     text-align: center;
 }
 
@@ -299,7 +298,7 @@ h2 { color: #2c3e50; }
     line-height: 1.5;
 }
 
-/* --- Універсальні стилі для полів вводу та вибору --- */
+/* поля вводу */
 .form-control-input {
     padding: 10px;
     border: 1px solid #ccc;
@@ -311,15 +310,14 @@ h2 { color: #2c3e50; }
     background-color: #fff;
 }
 
-/* Прибираємо старі специфічні селектори, якщо вони є,
-і залишаємо лише кастомізацію для inline-редагування */
+
 .inline-edit-input {
     border: 2px solid #3498db;
     outline: none;
-    padding: 8px; /* Трохи менший відступ для inline */
+    padding: 8px;
 }
 
-/* Анімація появи попапу */
+/* Анімація  попап */
 @keyframes slideDown {
     from { transform: translateY(-50px); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
